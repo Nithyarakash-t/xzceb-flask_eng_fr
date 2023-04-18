@@ -27,4 +27,6 @@ def englishToFrench(englishText):
 def frenchToEnglish(frenchText):
     englishText = language_translator.translate(text=frenchText, model_id='fr-en').get_result()
     return englishText
+
+    
 ```
