@@ -1,7 +1,7 @@
-import json
+"""This module does blah blah Translation"""
+import os
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,16 +19,19 @@ language_translator = LanguageTranslatorV3(
 )
 language_translator.set_service_url(url)
 
-def englishToFrench(englishText):
-    if englishText is None: 
+def english_to_french(english_text):
+    """This method translates english text to french"""
+    if english_text is None:
         return None
 
-    frenchText = language_translator.translate(text=englishText, model_id='en-fr').get_result()
-    return frenchText['translations'][0]['translation']
+    french_text = language_translator.translate(text=english_text, model_id='en-fr').get_result()
+    return french_text['translations'][0]['translation']
 
-def frenchToEnglish(frenchText):
-    if frenchText is None: 
+def french_to_english(french_text):
+    """This method translates french text to english"""
+    if french_text is None:
         return None
 
-    englishText = language_translator.translate(text=frenchText, model_id='fr-en').get_result()
-    return englishText['translations'][0]['translation']
+    english_text = language_translator.translate(text=french_text, model_id='fr-en').get_result()
+    return english_text['translations'][0]['translation']
+    
